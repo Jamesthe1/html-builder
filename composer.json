@@ -1,6 +1,6 @@
 {
-    "name": "jamesthe1/html-builder",
-    "description": "A basic HTML builder.",
+    "name": "jamesthe1/mini-html-builder",
+    "description": "A miniature HTML builder.",
     "type": "library",
     "keywords": ["html", "builder", "xhtml"],
     "license": "GPL-3.0-or-latest",
