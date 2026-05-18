@@ -3,7 +3,7 @@
     "description": "A miniature HTML builder.",
     "type": "library",
     "keywords": ["html", "builder", "xhtml"],
-    "license": "GPL-3.0-or-latest",
+    "license": "GPL-3.0-or-later",
     "homepage": "https://github.com/jamesthe1/html-builder",
     "authors": [
         {
