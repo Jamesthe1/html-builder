@@ -1,0 +1,17 @@
+{
+    "name": "jamesthe1/html-builder",
+    "description": "A basic HTML builder.",
+    "type": "library",
+    "keywords": ["html", "builder", "xhtml"],
+    "license": "GPL-3.0-or-latest",
+    "homepage": "https://github.com/jamesthe1/html-builder",
+    "authors": [
+        {
+            "name": "Jamesthe1",
+            "email": "jamesthe1sky@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.4"
+    }
+}
