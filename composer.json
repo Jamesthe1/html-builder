@@ -7,7 +7,7 @@
     "homepage": "https://github.com/jamesthe1/html-builder",
 	"autoload": {
 		"psr-4": {
-			"HTMLBuilder\\": "src/"
+			"HTMLBuild\\": "src/"
 		}
 	},
     "authors": [
