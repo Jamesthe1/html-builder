@@ -10,12 +10,15 @@ The API can be found in the single `builder.php` file, as it contains detailed d
 
 ```php
 
-$htmlroot = HTMLBuild\html_quick_setup("My website", "./favicon.ico", "./style.css");
+use HTMLBuild\Helpers;
+use HTMLBuild\html_element;
+
+$htmlroot = Helpers::html_quick_setup("My website", "./favicon.ico", "./style.css");
 $body = $htmlroot->get_child_by_tag("body"); // All objects are passed by reference.
-$body->add_child(new HTMLBuild\html_element("p", "Hello world!", $attributes = [
+$body->add_child(new html_element("p", "Hello world!", $attributes = [
     'class' = 'main-text',
     'id' = 'first-text'
 ]));
 
-HTMLBuild\html_print($htmlroot);
+Helpers::html_print($htmlroot);
 ```
