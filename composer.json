@@ -5,6 +5,11 @@
     "keywords": ["html", "builder", "xhtml"],
     "license": "GPL-3.0-or-later",
     "homepage": "https://github.com/jamesthe1/html-builder",
+	"autoload": {
+		"psr-4": {
+			"HTMLBuilder\\": "src/"
+		}
+	},
     "authors": [
         {
             "name": "Jamesthe1",
