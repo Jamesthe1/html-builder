@@ -1,4 +1,5 @@
 <?php
+namespace HTMLBuild;
 
 /**
  * A representation of an HTML element.
@@ -25,7 +26,7 @@ class html_element {
 	 * Constructs an html_element.
 	 * @param string $tag The tag of the element.
 	 * @param string $text The inner text of the element, if any.
-	 * @param bool $condense Whether or not to condense the element. Does not print children when converted to a string.
+	 * @param bool $condense Whether or not to condense the element (i.e. condensing `<br></br>` becomes `<br/>`). Does not print children or contents when converted to a string.
 	 * @param array $attributes A key-value array for all attributes that should be set with this element.
 	 */
 	function __construct(string $tag, string $text = '', bool $condense = false, array $attributes = []) {
@@ -50,7 +51,7 @@ class html_element {
 	 * @return void
 	 */
 	function add_children(array $children) {
-		$this->children = array_merge($this->children, $children);
+		$this->children = array_merge($this->children, $children);	// Preferring array_merge over spread operator because of clearer intent
 	}
 	
 	/**
@@ -190,7 +191,7 @@ function html_quick_setup(string $title, string $favicon_path, string $css_path)
  * @param array $attributes A key-value array for the attributes of the table.
  * @return html_element The `table` element.
  * 
- * @exception InvalidArgumentException Thrown when a value in the 2D array is of an invalid type.
+ * @exception \InvalidArgumentException Thrown when a value in the 2D array is of an invalid type.
  */
 function html_create_table(array $contents, array $attributes = []) {
 	$table = new html_element('table', '', false, $attributes);
@@ -203,7 +204,7 @@ function html_create_table(array $contents, array $attributes = []) {
 			else if (is_object($row_item) && $row_item instanceof html_element)
 				$cell->add_child($row_item);
 			else
-				throw new InvalidArgumentException("Value in array is not of valid type, must be string or html_element.");
+				throw new \InvalidArgumentException("Value in array is not of valid type, must be string or html_element.");
 		}
 	}
 	
@@ -238,7 +239,7 @@ function html_create_paragraphs(string $lines) {
  * @param bool $ordered Whether or not to use an ordered list.
  * @return html_element The `ol`/`ul` element.
  * 
- * @exception InvalidArgumentException Thrown when a value in the array is of an invalid type.
+ * @exception \InvalidArgumentException Thrown when a value in the array is of an invalid type.
  */
 function html_create_list(array $contents, bool $ordered = false) {
 	$list = new html_element($ordered ? 'ol' : 'ul');
@@ -250,7 +251,7 @@ function html_create_list(array $contents, bool $ordered = false) {
 		else if (is_object($entry) && $entry instanceof html_element)
 			$list_item->add_child($entry);
 		else
-			throw new InvalidArgumentException("Value in array is not of valid type, must be string or html_element.");
+			throw new \InvalidArgumentException("Value in array is not of valid type, must be string or html_element.");
 	}
 
 	return $list;
@@ -291,7 +292,7 @@ function html_create_link(string $href, string $text = '', array $attributes = [
  * @return void
  */
 function html_print(html_element $htmlroot) {
-	echo "<!DOCTYPE html>\n" . strval($htmlroot);
+	echo "<!DOCTYPE html>\n" . \strval($htmlroot);
 }
 
 ?>
